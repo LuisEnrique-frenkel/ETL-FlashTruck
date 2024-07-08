@@ -1,0 +1,27 @@
+# conda env create --file environment.yml
+# mamba env create --file environment.yml
+
+name: sqlite_tia_portal_etl
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - black
+  - pylint
+  - invoke
+  - ipykernel
+  - ipython
+  - jupyter
+  - jupyterlab
+  - python-dotenv
+  - pyprojroot
+  - fs
+  - nbdime
+  - numpy
+  - pandas
+  - pyjanitor
+  - matplotlib
+  - seaborn
