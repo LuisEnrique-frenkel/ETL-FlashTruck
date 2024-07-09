@@ -14,4 +14,4 @@ def get_full_steam(path_LoggingTag: str, path_TLG: str, TLG: int) -> pd.DataFram
     df_LoggingTag = df_LoggingTag[["pk_Key", "tag_name", "fk_LogId", "DataType"]]
     df_TLG = pd.read_csv(path_TLG)
     return pd.merge(df_TLG, df_LoggingTag[df_LoggingTag['fk_LogId'] == TLG], 
-                        left_on='pk_fk_Id', right_on='pk_Key', how='inner')      
+                        left_on='pk_fk_Id', right_on='pk_Key', how='inner')
