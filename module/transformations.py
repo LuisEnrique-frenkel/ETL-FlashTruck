@@ -16,8 +16,8 @@ def get_fulldf(SubFS: SubFS) -> pd.DataFrame:
     """
     df = pd.DataFrame()  # DataFrame para almacenar los datos combinados
     
-    try:
-        for index, path in enumerate(SubFS.walk.files()):
+    for index, path in enumerate(SubFS.walk.files()):
+        try:
             # Create connection to the DB
             conn = db.connect(SubFS.getsyspath(path))
             
@@ -28,11 +28,13 @@ def get_fulldf(SubFS: SubFS) -> pd.DataFrame:
             # Concatenate the data to df
             df = pd.concat([df, data], ignore_index=True)
             
+            # print(df.shape)
+            
             # Close the connection
             conn.close()
             
-    except Exception as e:
-        print(f"Error processing database at {path}: {str(e)}")
+        except Exception as e:
+            print(f"Error processing database at {path}: {str(e)}")
     
     return df
 
